@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agente Escolar IA - Democracia y Cultura de Paz</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<!-- Panel superpuesto para mostrar info dinámica -->
+<div id="infoPanel" class="info-panel-overlay hidden">
+    <div class="info-panel">
+        <button id="cerrarPanel" class="btn-close" aria-label="Cerrar">&times;</button>
+        <div id="contenidoPanel" class="contenido-panel">
+            <p></p>
+            <img id="imagenPanel" src="" alt="Ilustración" />
+        </div>
+    </div>
+</div>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm">
+        <div class="container">
+            <!-- Logo centrado -->
+            <a class="navbar-brand mx-auto" href="#" style="max-width: 120px;">
+                <img src="/logo.svg" alt="Logo Agente Escolar IA" class="d-block mx-auto"
+                    style="max-height: 50px; object-fit: contain;" />
+            </a>
+
+            <!-- Botón toggler para móvil -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menú de navegación colapsable -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto fs-6">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#chat">Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#info">Información</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Botón toggler para móvil -->
+    <button class="navbar-toggler order-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Contenido colapsable para móviles -->
+    <div class="collapse navbar-collapse w-100 order-4" id="navbarResponsive">
+        <ul class="navbar-nav mx-auto fs-6">
+            <li class="nav-item">
+                <a class="nav-link" href="#chat">Chat</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#info">Información</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+        </ul>
+    </div>
+    </div>
+    </nav>
+
+
+    <main class="container mt-5 pt-5">
+
+        <section id="chat" class="chat-container bg-light rounded shadow p-4 mb-5">
+
+            <div class="d-flex align-items-center mb-3">
+                <img src="/diseno-icono-bot-chat-robot-dice-hola-asistente-inteligente-virtual-icono-robot-concepto-simbolo-chatbot-voz_418020-456.avif"
+                    alt="Bot" class="rounded-circle me-3" width="50" height="50" />
+                <h2 class="h4 mb-0">Agente Escolar IA - Democracia y Cultura de Paz</h2>
+            </div>
+
+            <div id="chatBox" class="chat-box mb-4">
+                <div class="chat-message bot-message p-3 mb-3 rounded bg-white shadow-sm">
+                    ¡Hola! Soy tu Agente Escolar IA. Estoy aquí para ayudarte a entender y fortalecer la democracia y
+                    la cultura de paz.
+                    ¿Sobre qué tema deseas saber más? Selecciona una opción a continuación.
+                </div>
+
+                <details class="mb-3">
+                    <summary class="fs-5 fw-semibold mb-2"> Temas sobre Democracia</summary>
+                    <div class="d-flex flex-column gap-2">
+                        <button class="btn btn-outline-primary btn-sm text-start"
+                            onclick="opcionSeleccionada('Historia de la democracia')">Historia de la democracia</button>
+                        <button class="btn btn-outline-primary btn-sm text-start"
+                            onclick="opcionSeleccionada('Derechos y deberes')">Derechos y deberes</button>
+                        <button class="btn btn-outline-primary btn-sm text-start"
+                            onclick="opcionSeleccionada('Participación ciudadana')">Participación ciudadana</button>
+                        <button class="btn btn-outline-primary btn-sm text-start"
+                            onclick="opcionSeleccionada('Valores democráticos')">Valores democráticos</button>
+                        <button class="btn btn-outline-primary btn-sm text-start"
+                            onclick="opcionSeleccionada('Instituciones democráticas')">Instituciones
+                            democráticas</button>
+                    </div>
+                </details>
+
+                <details class="mb-3">
+                    <summary class="fs-5 fw-semibold mb-2"> Cultura de Paz</summary>
+                    <div class="d-flex flex-column gap-2">
+                        <button class="btn btn-outline-success btn-sm text-start"
+                            onclick="opcionSeleccionada('Resolución pacífica de conflictos')">Resolución pacífica de
+                            conflictos</button>
+                        <button class="btn btn-outline-success btn-sm text-start"
+                            onclick="opcionSeleccionada('Tolerancia y respeto')">Tolerancia y respeto</button>
+                        <button class="btn btn-outline-success btn-sm text-start"
+                            onclick="opcionSeleccionada('Educación para la paz')">Educación para la paz</button>
+                        <button class="btn btn-outline-success btn-sm text-start"
+                            onclick="opcionSeleccionada('Actividades para fomentar la paz')">Actividades para fomentar
+                            la paz</button>
+                        <button class="btn btn-outline-success btn-sm text-start"
+                            onclick="opcionSeleccionada('Historias inspiradoras de paz')">Historias inspiradoras de
+                            paz</button>
+                    </div>
+                </details>
+
+                <details>
+                    <summary class="fs-5 fw-semibold mb-2"> Noticias y eventos</summary>
+                    <div class="d-flex flex-column gap-2">
+                        <button class="btn btn-outline-info btn-sm text-start"
+                            onclick="opcionSeleccionada('Eventos escolares sobre democracia')">Eventos escolares sobre
+                            democracia</button>
+                        <button class="btn btn-outline-info btn-sm text-start"
+                            onclick="opcionSeleccionada('Jornadas de cultura de paz')">Jornadas de cultura de
+                            paz</button>
+                        <button class="btn btn-outline-info btn-sm text-start"
+                            onclick="opcionSeleccionada('Convocatorias para talleres')">Convocatorias para
+                            talleres</button>
+                    </div>
+                </details>
+
+            </div>
+        </section>
+
+        <section id="info" class="info-section bg-white rounded shadow p-4 mb-5">
+            <h3>¿Qué es la democracia?</h3>
+            <p>
+                La democracia es un sistema político en el que el poder reside en el pueblo, que participa
+                en la toma de decisiones mediante elecciones libres y justas. Promueve la igualdad, la libertad y el
+                respeto a los derechos humanos.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contacto" class="bg-primary text-white pt-4 pb-3 mt-auto">
+        <div class="container text-center">
+            <p class="mb-2">© 2025 Agente Escolar IA. Promoviendo la democracia y la cultura de paz.</p>
+            <p>
+                Contacto: <a href="mailto:contacto@agenteescolaria.edu"
+                    class="text-white text-decoration-underline">contacto@agenteescolaria.edu</a> |
+                Tel: <a href="tel:+123456789" class="text-white text-decoration-underline">2385-8934</a>
+            </p>
+            <div>
+                <a href="#" class="text-white fs-5 mx-2" aria-label="Facebook">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="text-white fs-5 mx-2" aria-label="Twitter">
+                    <i class="bi bi-twitter"></i>
+                </a>
+                <a href="#" class="text-white fs-5 mx-2" aria-label="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <script src="/java.js"></script>
+</body>
+
+</html>
